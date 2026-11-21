@@ -1,0 +1,141 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; overflow: hidden; }
+
+/* Blurred copy of the picture fills any leftover space around the stage */
+body {
+    display: grid;
+    place-items: center;
+    background: #2a6fe0;
+    font-family: "Nunito", "Trebuchet MS", Arial, sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: -30px;
+    background: url("assets/signup-bg.jpg") center / cover no-repeat;
+    filter: blur(22px) brightness(.92);
+    z-index: -1;
+}
+
+/* STAGE: exactly the picture's shape (1983 x 793), always fully visible.
+   Limited by both window width and window height. */
+.stage {
+    width: min(100vw, calc(100vh * 1983 / 793));
+    aspect-ratio: 1983 / 793;
+    position: relative;
+    container-type: size;
+    background: url("assets/signup-bg.jpg") center / 100% 100% no-repeat;
+}
+
+/* Form column sits in the clear sky between the characters and the castle.
+   All sizes are in cqw = 1% of the stage width, so everything scales together. */
+.container {
+    position: absolute;
+    left: 55.5%;
+    bottom: 1.5cqw;
+    transform: translateX(-50%);
+    width: 27cqw;
+    text-align: left;
+    font-size: 1cqw;
+}
+
+.logo { display: flex; justify-content: flex-start; align-items: center; gap: .6cqw; }
+.logo-icon { font-size: 2.4cqw; line-height: 1; }
+.logo h1 {
+    font-family: "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    font-size: 2.6cqw;
+    color: #ffe98a;
+    text-shadow: 0 .25cqw 0 #5b2a96, 0 .4cqw .8cqw rgba(0,0,0,.35);
+}
+.tagline {
+    display: inline-block;
+    margin: .3cqw 0 .7cqw;
+    padding: .25cqw 1.4cqw;
+    background: #5b2a96;
+    color: #fff2c4;
+    border-radius: 2cqw;
+    letter-spacing: .15cqw;
+    font-size: .95cqw;
+    font-weight: 800;
+}
+
+.signup-box {
+    text-align: center;
+    background: #fff6e0;
+    border: .45cqw solid #c9a064;
+    outline: .2cqw solid #f2b632;
+    outline-offset: -.8cqw;
+    border-radius: 1.6cqw;
+    padding: 1.4cqw 2cqw 1.3cqw;
+    box-shadow: 0 1cqw 2.2cqw rgba(40, 20, 80, .35);
+}
+.signup-box h2 {
+    font-family: "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    font-size: 1.9cqw;
+    color: #6a2fb0;
+}
+.subtitle { font-size: 1cqw; color: #7a6a55; margin: .1cqw 0 .8cqw; font-weight: 700; }
+
+.input-group { text-align: left; margin-bottom: .65cqw; }
+.input-group label {
+    display: block; margin-bottom: .25cqw;
+    font-size: 1cqw; font-weight: 800; color: #5a3a1a;
+}
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: .62cqw .85cqw;
+    font: 700 1.05cqw "Nunito", Arial, sans-serif;
+    color: #3a2a1a;
+    border: .15cqw solid #d9bd8a;
+    border-radius: .8cqw;
+    background: #fff;
+    outline: none;
+}
+.input-group input:focus,
+.input-group select:focus { border-color: #8a4fd6; box-shadow: 0 0 0 .25cqw rgba(138, 79, 214, .25); }
+.input-group small { display: block; margin-top: .25cqw; font-size: .8cqw; color: #8a7a64; }
+
+/* Age and Gender share one row to keep the form short */
+.row { display: flex; gap: 1cqw; }
+.row .input-group { flex: 1; }
+
+#message:empty { display: none; }
+#message { min-height: 0; font-size: .95cqw; font-weight: 800; margin-bottom: .4cqw; color: red; }
+
+button {
+    width: 100%;
+    padding: .75cqw;
+    border: none;
+    border-radius: 1cqw;
+    background: linear-gradient(#ffd34d, #f2a91c);
+    box-shadow: 0 .3cqw 0 #b97a0e;
+    color: #5a3200;
+    font: 700 1.3cqw "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    letter-spacing: .1cqw;
+    cursor: pointer;
+}
+button:hover { filter: brightness(1.06); }
+button:active { transform: translateY(.2cqw); box-shadow: 0 .1cqw 0 #b97a0e; }
+
+.login-section {
+    display: flex; align-items: center; justify-content: center; gap: .8cqw;
+    margin-top: .9cqw;
+    padding-top: .8cqw;
+    border-top: .12cqw dashed #d9bd8a;
+}
+.login-section p { font-size: 1cqw; font-weight: 800; color: #5a3a1a; margin: 0; white-space: nowrap; }
+.login-button {
+    display: inline-block;
+    padding: .5cqw 1.3cqw; white-space: nowrap;
+    font: 700 1.1cqw "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    letter-spacing: .08cqw;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(#8a4fd6, #6a2fb0);
+    border-radius: 2cqw;
+    box-shadow: 0 .25cqw 0 #46207a;
+}
+.login-button:hover { filter: brightness(1.1); }
+

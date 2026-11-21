@@ -1,0 +1,115 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; overflow: hidden; }
+
+/* Blurred copy of the picture fills any leftover space around the stage */
+body {
+    display: grid;
+    place-items: center;
+    background: #2f7d3a;
+    font-family: "Nunito", "Trebuchet MS", Arial, sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: -30px;
+    background: url("assets/login-bg.jpg") center / cover no-repeat;
+    filter: blur(22px) brightness(.9);
+    z-index: -1;
+}
+
+/* STAGE: exactly the picture's shape (1983 x 793), always fully visible.
+   Width is limited by BOTH window width and window height. */
+.stage {
+    width: min(100vw, calc(100vh * 1983 / 793));
+    aspect-ratio: 1983 / 793;
+    position: relative;
+    container-type: size;
+    background: url("assets/login-bg.jpg") center / 100% 100% no-repeat;
+}
+
+/* Form column sits at the bottom centre, on the stone platform.
+   Every size is in cqw = 1% of the stage width, so it scales with the picture. */
+.container {
+    position: absolute;
+    left: 50%;
+    bottom: 2.2cqw;
+    transform: translateX(-50%);
+    width: 27cqw;
+    text-align: center;
+    font-size: 1cqw;
+}
+
+.logo { display: flex; justify-content: center; align-items: center; gap: .6cqw; }
+.logo-icon { font-size: 3.2cqw; line-height: 1; }
+.logo h1 {
+    font-family: "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    font-size: 3.4cqw;
+    color: #ffe98a;
+    text-shadow: 0 .25cqw 0 #6b3f1d, 0 .4cqw .8cqw rgba(0,0,0,.35);
+}
+.tagline {
+    display: inline-block;
+    margin: .4cqw 0 .9cqw;
+    padding: .3cqw 1.4cqw;
+    background: #7a4a24;
+    color: #fff2c4;
+    border-radius: 2cqw;
+    letter-spacing: .15cqw;
+    font-size: 1cqw;
+    font-weight: 800;
+}
+
+.login-box {
+    background: #fff6e0;
+    border: .45cqw solid #c9a064;
+    outline: .2cqw solid #f2b632;
+    outline-offset: -.8cqw;
+    border-radius: 1.6cqw;
+    padding: 1.6cqw 2cqw;
+    box-shadow: 0 1cqw 2.2cqw rgba(60, 35, 10, .35);
+}
+.login-box h2 {
+    font-family: "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    font-size: 2cqw;
+    color: #6a2fb0;
+}
+.subtitle { font-size: 1.05cqw; color: #7a6a55; margin: .2cqw 0 1cqw; font-weight: 700; }
+
+.input-group { text-align: left; margin-bottom: .8cqw; }
+.input-group label {
+    display: block; margin-bottom: .3cqw;
+    font-size: 1.05cqw; font-weight: 800; color: #5a3a1a;
+}
+.input-group input {
+    width: 100%;
+    padding: .75cqw .9cqw;
+    font: 700 1.1cqw "Nunito", Arial, sans-serif;
+    border: .15cqw solid #d9bd8a;
+    border-radius: .8cqw;
+    background: #fff;
+    outline: none;
+}
+.input-group input:focus { border-color: #8a4fd6; box-shadow: 0 0 0 .25cqw rgba(138, 79, 214, .25); }
+.password-hint { display: block; margin-top: .3cqw; font-size: .85cqw; color: #8a7a64; }
+
+#message { min-height: 1.4cqw; font-size: 1cqw; font-weight: 800; margin-bottom: .5cqw; color: red; }
+
+button {
+    width: 100%;
+    padding: .8cqw;
+    border: none;
+    border-radius: 1cqw;
+    background: linear-gradient(#ffd34d, #f2a91c);
+    box-shadow: 0 .3cqw 0 #b97a0e;
+    color: #5a3200;
+    font: 700 1.4cqw "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    letter-spacing: .1cqw;
+    cursor: pointer;
+}
+button:hover { filter: brightness(1.06); }
+button:active { transform: translateY(.2cqw); box-shadow: 0 .1cqw 0 #b97a0e; }
+
+.signup-text { margin-top: 1cqw; font-size: 1cqw; color: #7a6a55; font-weight: 700; }
+.signup-text a { color: #6a2fb0; font-weight: 800; text-decoration: none; }
+.signup-text a:hover { text-decoration: underline; }

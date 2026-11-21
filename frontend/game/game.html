@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPlay | Adventure Test</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+<div class="page-shell">
+
+    <header class="topbar">
+        <a class="brand" href="../index.html">
+            <span class="brand-icon">🧠</span>
+            <span>
+                <strong>NeuroPlay</strong>
+                <small>Play. Learn. Discover.</small>
+            </span>
+        </a>
+
+        <div class="top-status">
+            <span class="status-dot"></span>
+            <span id="studentLabel">Adventure mode</span>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- INTRO SCREEN -->
+        <section id="introScreen" class="intro-card">
+
+            <div class="intro-art">
+                <div class="sun">☀️</div>
+                <div class="cloud cloud-one">☁️</div>
+                <div class="cloud cloud-two">☁️</div>
+                <div class="island">🏝️</div>
+                <div class="dragon">🐉</div>
+                <div class="stars">✦　✧　✦</div>
+            </div>
+
+            <div class="intro-copy">
+                <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
+
+                <h1>
+                    Ready to explore<br>
+                    <span>the world of words?</span>
+                </h1>
+
+                <p id="introDescription">
+                    Complete each activity at your own pace.
+                    Listen carefully, look closely and have fun!
+                </p>
+
+                <div class="instruction-row">
+                    <span>🎧 Listen</span>
+                    <span>🔎 Observe</span>
+                    <span>⭐ Try your best</span>
+                </div>
+
+                <p class="privacy-note">
+                    This activity is an educational screening prototype,
+                    not a medical diagnosis.
+                </p>
+
+                <button id="beginButton" class="primary-button">
+                    Begin adventure →
+                </button>
+
+                <p id="introError" class="error-message"></p>
+            </div>
+        </section>
+
+
+        <!-- TEST SCREEN -->
+        <section id="testScreen" class="test-screen hidden">
+
+            <div class="progress-panel">
+                <div class="progress-top">
+                    <span id="questionCounter">Activity 1 of 27</span>
+                    <span id="progressPercent">0% complete</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+
+
+            <article class="question-card">
+
+                <div class="question-heading">
+                    <div class="game-icon" id="gameIcon">🐉</div>
+
+                    <div class="heading-text">
+                        <p class="eyebrow" id="skillLabel">WORD & SOUND ADVENTURE</p>
+                        <h2 id="gameTitle">Dragon Sound Hunt</h2>
+                    </div>
+
+                    <button id="soundButton" class="sound-button" type="button">
+                        🔊 <span>Listen</span>
+                    </button>
+                </div>
+
+                <p id="questionPrompt" class="question-prompt"></p>
+
+                <div id="stimulusArea" class="stimulus-area"></div>
+
+                <div id="optionsArea" class="options-grid"></div>
+
+                <div id="taskFeedback" class="task-feedback"></div>
+
+                <div class="question-actions">
+                    <div class="timer-display">
+                        ⏳ Time remaining:
+                        <span id="questionTimer">00:30</span>
+                    </div>
+
+                    <span id="clickHint">Choose the best answer.</span>
+
+                    <button id="nextButton" class="primary-button" disabled>
+                        Next activity →
+                    </button>
+                </div>
+
+            </article>
+
+            <p class="encouragement">
+                🌟 Every activity is a new discovery. Take your time!
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        NeuroPlay · Learn through play
+    </footer>
+
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>

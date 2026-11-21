@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NeuroPlay | My Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <a class="brand" href="../index.html">
+      <span class="brand-icon">🧠</span>
+      <span>
+        <b>NeuroPlay</b>
+        <small>Play. Learn. Discover.</small>
+      </span>
+    </a>
+
+    <nav>
+      <a class="active" href="dashboard.html">Dashboard</a>
+      <a href="../index.html">About</a>
+      <button id="logoutBtn" class="logout">Logout ↗</button>
+    </nav>
+
+  </header>
+
+  <main class="wrap">
+
+    <section class="welcome">
+
+      <div>
+        <p class="eyebrow">YOUR PERSONAL ADVENTURE HUB</p>
+
+        <h1>
+          Welcome back,
+          <span id="welcomeName">Explorer</span>! ✨
+        </h1>
+
+        <p>
+          Your NeuroPlay journey is saved here.
+          Keep exploring at your own pace.
+        </p>
+      </div>
+
+      <div class="mascot">🧭</div>
+
+    </section>
+
+    <section class="stats" aria-label="Your progress">
+
+      <article class="stat">
+        <span>🧪</span>
+        <div>
+          <small>Tests completed</small>
+          <strong id="testCount">0</strong>
+        </div>
+      </article>
+
+      <article class="stat">
+        <span>🕒</span>
+        <div>
+          <small>Latest test</small>
+          <strong id="latestDate">Not yet</strong>
+        </div>
+      </article>
+
+      <article class="stat">
+        <span>🌟</span>
+        <div>
+          <small>Latest screening result</small>
+          <strong id="latestRisk">Not available</strong>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="history" id="history">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">YOUR SAVED JOURNEY</p>
+          <h2>Previous Test Results</h2>
+          <p>Every completed attempt is kept separately in your account.</p>
+        </div>
+
+        <a class="new-test" href="../game/game.html">
+          ＋ Take a New Test
+        </a>
+
+      </div>
+
+      <div id="status" class="status">
+        Loading your test history...
+      </div>
+
+      <div id="resultsList" class="results-list"></div>
+
+    </section>
+
+    <p class="disclaimer">
+      NeuroPlay is an educational screening prototype, not a medical diagnosis.
+    </p>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

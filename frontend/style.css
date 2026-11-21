@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* MAIN HOME PAGE */
+
+.home-page {
+    min-height: 100vh;
+    position: relative;
+    background: none;
+}
+
+/* Display the original adventure world */
+
+.hero {
+    min-height: 720px;
+    height: 100vh;
+    position: relative;
+
+    background-image: url("./assets/images/home-world.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 30px 7% 80px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    width: 100%;
+    min-height: 90px;
+    padding: 18px 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    position: relative;
+    z-index: 5;
+}
+
+/* LOGO */
+
+.logo {
+    text-decoration: none;
+    color: #37216d;
+    font-size: 27px;
+    font-weight: bold;
+
+    background: rgba(255,255,255,0.92);
+    padding: 12px 22px;
+    border-radius: 35px;
+
+    border: 2px solid white;
+    box-shadow: 0 4px 12px rgba(40,30,90,0.15);
+}
+
+/* NAV LINKS */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+
+    background: linear-gradient(135deg, #315eea, #7543dc);
+
+    padding: 12px 19px;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    border: 2px solid rgba(255,255,255,0.6);
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    transform: translateY(-4px);
+    background: #8b4be5;
+}
+
+/* LOGIN AND SIGNUP */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-btn,
+.signup-btn {
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.login-btn {
+     color: white;
+    background: linear-gradient(135deg, #7543e5, #b342e8);
+    box-shadow: 0 4px 12px rgba(90,40,170,0.25);
+}
+
+.signup-btn {
+    color: white;
+    background: linear-gradient(135deg, #7543e5, #b342e8);
+    box-shadow: 0 4px 12px rgba(90,40,170,0.25);
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    transform: translateY(-4px);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: calc(100vh - 90px);
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 30px 7% 80px;
+}
+
+/* MAIN CONTENT BOX */
+
+.hero-content {
+    width: 470px;
+    max-width: 45%;
+
+    padding: 32px;
+    text-align: center;
+
+    background: rgba(255,248,225,0.88);
+
+    border: 3px solid white;
+    border-radius: 30px;
+
+    box-shadow: 0 10px 30px rgba(50,35,80,0.18);
+}
+
+/* BRAND HEADING */
+
+.brand-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.brand-heading h1 {
+    font-size: 43px;
+    color: #153b9a;
+    font-weight: 900;
+
+    -webkit-text-stroke: 1px white;
+    text-shadow: 3px 4px 0 #f4a52c;
+}
+
+.brand-heading h1 span {
+    color: #f18a16;
+}
+
+.puzzle {
+    font-size: 35px;
+}
+
+.hero-content h3 {
+    margin: 10px 0 25px;
+    color: #9b4d0b;
+    font-size: 19px;
+}
+
+/* MAIN HEADING */
+
+.hero-content h2 {
+    color: #29205c;
+    font-size: 39px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.hero-content p {
+    color: #39345c;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.get-started,
+.learn-more {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 23px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.get-started {
+    color: white;
+    background: linear-gradient(135deg, #6425df, #a832e9);
+    box-shadow: 0 5px 14px rgba(90,30,180,0.3);
+}
+
+.learn-more {
+    color: #253c91;
+    background: white;
+    border: 2px solid #d9d1ff;
+}
+
+.get-started:hover,
+.learn-more:hover {
+    transform: translateY(-4px);
+}
+
+/* BOTTOM MESSAGE */
+
+.bottom-message {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(255,255,255,0.85);
+    color: #49327f;
+
+    padding: 12px 24px;
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        justify-content: center;
+        padding-top: 50px;
+    }
+
+    .hero-content {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 750px;
+        padding: 35px 15px 75px;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px 18px;
+    }
+
+    .brand-heading h1 {
+        font-size: 34px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+    }
+
+    .bottom-message {
+        font-size: 11px;
+    }
+}
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section {
+    min-height: 580px;
+    padding: 90px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #c9f1ff,
+        #e5ddff,
+        #ffe5ef
+    );
+}
+
+.about-content {
+    max-width: 900px;
+    width: 100%;
+    padding: 45px;
+
+    text-align: center;
+    color: #30204e;
+
+    background: rgba(255,255,255,0.75);
+    border: 2px solid white;
+    border-radius: 30px;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 25px;
+
+    background: #e7d7ff;
+    color: #6940a6;
+    font-weight: bold;
+}
+
+.about-content h2,
+.how-content h2 {
+    font-size: 36px;
+    margin: 22px 0;
+}
+
+.about-content h2 span {
+    color: #8854dd;
+}
+
+.about-content p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 15px auto;
+}
+
+.about-highlight {
+    margin-top: 25px;
+    padding: 17px;
+    border-radius: 18px;
+
+    background: #eee3ff;
+    color: #63409c;
+    font-weight: bold;
+}
+
+
+/* =========================
+   HOW TO PLAY
+========================= */
+
+.how-section {
+    min-height: 650px;
+    padding: 90px 7%;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #fff0d5,
+        #ffe1ee,
+        #dcdcff
+    );
+}
+
+.how-content {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.how-description {
+    color: #51466e;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 35px 0;
+}
+
+.step-card {
+    padding: 30px 20px;
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.85);
+    border: 2px solid white;
+
+    color: #30204e;
+    transition: 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(80,50,130,0.15);
+}
+
+.step-card span {
+    font-size: 42px;
+}
+
+.step-card h3 {
+    color: #7247b8;
+    margin: 16px 0;
+}
+
+.step-card p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.site-footer {
+    padding: 30px;
+    text-align: center;
+    line-height: 2;
+
+    background: #e9dcff;
+    color: #38215e;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        padding: 30px 20px;
+    }
+
+    .about-content h2,
+    .how-content h2 {
+        font-size: 29px;
+    }
+}
+/* NAVBAR INSIDE HOME WORLD */
+
+.hero .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 4%;
+}
+
+/* Keep navbar buttons visible */
+
+.hero .navbar nav a,
+.hero .navbar .login-btn,
+.hero .navbar .signup-btn {
+    box-shadow: 0 3px 10px rgba(40, 30, 90, 0.15);
+}
+/* Move NeuroPlay branding slightly down */
+
+.brand-heading {
+    margin-top: 10px;
+}
+
+.hero-content h3 {
+    margin-top: 15px;
+}
+.brand-heading {
+    transform: translateY(30px);
+}
+
+.hero-content h3 {
+    transform: translateY(30px);
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NeuroPlay - Adventure Results</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="result.css">
+</head>
+
+<body>
+
+    <!-- ICON SPRITE (used by cards and buttons) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-question" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 16h-2v-2h2zm2.1-7.7l-.9.9c-.7.7-1.2 1.3-1.2 2.8h-2v-.5c0-1.100.5-2.100 1.200-2.800l1.200-1.300c.4-.3.600-.8.600-1.400 0-1.100-.9-2-2-2s-2 .9-2 2H8a4 4 0 118 0c0 .9-.4 1.700-.9 2.300z"/></symbol>
+            <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.400-1.400L10 14.200l7.600-7.600L19 8z"/></symbol>
+            <symbol id="i-cross" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm5 13.600L15.600 17 12 13.400 8.400 17 7 15.600 10.600 12 7 8.400 8.400 7 12 10.600 15.600 7 17 8.400 13.400 12z"/></symbol>
+            <symbol id="i-target" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm0-14a6 6 0 100 12 6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8zm0-6a2 2 0 100 4 2 2 0 000-4z"/></symbol>
+            <symbol id="i-warn" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L1 21h22zm1 15h-2v-2h2zm0-4h-2V9h2z"/></symbol>
+            <symbol id="i-mouse" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3l14 8-6 1.500L15.500 19l-2.700 1.200L10.200 14 6 18z"/></symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm4 11h-5V6h2v5h3z"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1L3 5v6c0 5.500 3.800 10.700 9 12 5.200-1.300 9-6.500 9-12V5zm-1 15l-4-4 1.400-1.400L11 13.200l4.600-4.600L17 10z"/></symbol>
+            <symbol id="i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3z"/></symbol>
+            <symbol id="i-replay" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5V1L7 6l5 5V7a6 6 0 11-6 6H4a8 8 0 108-8z"/></symbol>
+            <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.400 0-8 2.200-8 5v3h16v-3c0-2.800-3.600-5-8-5z"/></symbol>
+            <symbol id="i-cake" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c.8 1 1.500 1.800 1.500 2.800a1.500 1.500 0 01-3 0C10.500 3.800 11.200 3 12 2zM4 21v-7a3 3 0 013-3h10a3 3 0 013 3v7zm3-8a1 1 0 00-1 1v1.500c1 .6 2 .6 3 0 1 .6 2 .6 3 0 1 .6 2 .6 3 0 1 .6 2 .6 3 0V14a1 1 0 00-1-1z"/></symbol>
+            <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.500l3 7 7.500.6-5.700 4.900 1.800 7.300L12 17.500l-6.600 3.800 1.800-7.300L1.500 9.100 9 8.500z"/></symbol>
+        </defs>
+    </svg>
+
+    <!-- ILLUSTRATED BACKGROUND (picture is set in result.css) -->
+    <div class="scene" aria-hidden="true"></div>
+
+    <!-- LOAD-IN STARS -->
+    <div class="star-field" aria-hidden="true">
+        <i style="--x:8%;--y:22%;--s:26px;--d:.1s"></i>
+        <i style="--x:20%;--y:10%;--s:18px;--d:.3s"></i>
+        <i style="--x:34%;--y:6%;--s:22px;--d:.5s"></i>
+        <i style="--x:50%;--y:3%;--s:30px;--d:.2s"></i>
+        <i style="--x:66%;--y:8%;--s:20px;--d:.6s"></i>
+        <i style="--x:80%;--y:14%;--s:26px;--d:.4s"></i>
+        <i style="--x:92%;--y:26%;--s:18px;--d:.7s"></i>
+        <i style="--x:14%;--y:46%;--s:16px;--d:.8s"></i>
+        <i style="--x:88%;--y:50%;--s:22px;--d:.9s"></i>
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+            <span>🧠</span>
+
+            <div>
+                <h1>NeuroPlay</h1>
+                <p>Play. Learn. Discover.</p>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+
+            <a href="../index.html"><svg class="ico"><use href="#i-home"/></svg> Home</a>
+
+            <button onclick="location.href='../login/login.html'">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ADVENTURE LAYOUT (characters, castle and treasure are part of the background image) -->
+
+    <main class="adventure-container">
+
+        <!-- MAIN RESULTS BOARD -->
+
+        <section class="results-board">
+
+            <div class="board-heading">
+
+                <svg class="ico big"><use href="#i-star"/></svg>
+
+                <div>
+                    <h2>Test Completed!</h2>
+
+                    <p>
+                        Great job! Here is your performance summary.
+                    </p>
+                </div>
+
+                <svg class="ico big"><use href="#i-star"/></svg>
+
+            </div>
+
+            <div class="board-panel">
+
+                <!-- USER DETAILS -->
+
+                <div class="user-details">
+
+                    <p><svg class="ico"><use href="#i-user"/></svg> Username: <span id="username"></span></p>
+
+                    <p><svg class="ico"><use href="#i-cake"/></svg> Age: <span id="age"></span></p>
+
+                </div>
+
+
+                <!-- SCORE -->
+
+                <div class="score-section">
+
+                    <h3>Your Score</h3>
+
+                    <div class="score-stage">
+
+                        <!-- trophy -->
+                        <svg class="trophy" viewBox="0 0 120 150" aria-hidden="true">
+                            <path d="M30 20h60v34a30 30 0 01-60 0z" fill="#ffc928" stroke="#c98a00" stroke-width="4"/>
+                            <path d="M30 28H12c0 22 8 34 22 38M90 28h18c0 22-8 34-22 38" fill="none" stroke="#e5a400" stroke-width="7" stroke-linecap="round"/>
+                            <rect x="54" y="84" width="12" height="26" fill="#e5a400"/>
+                            <rect x="34" y="110" width="52" height="14" rx="5" fill="#8d4e20"/>
+                            <rect x="26" y="124" width="68" height="14" rx="5" fill="#6b3f1d"/>
+                            <path d="M60 30l5 10 11 1-8 8 2 11-10-6-10 6 2-11-8-8 11-1z" fill="#fff4b3"/>
+                            <path d="M40 26v30" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+                        </svg>
+
+                        <div class="score-circle">
+
+                            <span id="score"></span>
+
+                        </div>
+
+                        <!-- glowing gem -->
+                        <svg class="gem" viewBox="0 0 100 100" aria-hidden="true">
+                            <polygon points="50,8 88,34 50,92 12,34" fill="#4dd0e1" stroke="#1597a8" stroke-width="4" stroke-linejoin="round"/>
+                            <polygon points="50,8 70,34 50,92 30,34" fill="#9cf0f8" opacity=".7"/>
+                            <path d="M12 34H88" stroke="#1597a8" stroke-width="3"/>
+                        </svg>
+
+                    </div>
+
+                    <p id="scoreText"></p>
+
+                </div>
+
+
+                <!-- PERFORMANCE CARDS -->
+
+                <div class="result-grid">
+
+                    <div class="result-card total-card">
+
+                        <span><svg class="ico"><use href="#i-question"/></svg></span>
+
+                        <div>
+                            <h3>Total Questions</h3>
+                            <p id="totalQuestions"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card correct-card">
+
+                        <span><svg class="ico"><use href="#i-check"/></svg></span>
+
+                        <div>
+                            <h3>Correct Answers</h3>
+                            <p id="hits"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card incorrect-card">
+
+                        <span><svg class="ico"><use href="#i-cross"/></svg></span>
+
+                        <div>
+                            <h3>Incorrect Answers</h3>
+                            <p id="misses"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card accuracy-card">
+
+                        <span><svg class="ico"><use href="#i-target"/></svg></span>
+
+                        <div>
+                            <h3>Accuracy</h3>
+                            <p id="accuracy"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card miss-card">
+
+                        <span><svg class="ico"><use href="#i-warn"/></svg></span>
+
+                        <div>
+                            <h3>Miss Rate</h3>
+                            <p id="missRate"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card clicks-card">
+
+                        <span><svg class="ico"><use href="#i-mouse"/></svg></span>
+
+                        <div>
+                            <h3>Total Clicks</h3>
+                            <p id="clicks"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-card time-card">
+
+                        <span><svg class="ico"><use href="#i-clock"/></svg></span>
+
+                        <div>
+                            <h3>Completion Time</h3>
+                            <p id="completionTime"></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RISK INDICATOR -->
+
+                <div class="risk-section">
+
+                    <div class="risk-icon"><svg class="ico"><use href="#i-shield"/></svg></div>
+
+                    <div class="risk-content">
+
+                        <h3>Dyslexia Risk Indicator</h3>
+
+                        <div id="riskLevel" class="risk-badge">
+                            Calculating...
+                        </div>
+
+                        <p id="riskMessage"></p>
+
+                        <div id="weakest"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DISCLAIMER -->
+
+                <p class="disclaimer">
+
+                    This is an educational screening prototype.
+                    The result is not a medical diagnosis of dyslexia.
+
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="board-actions">
+
+                <button class="play-again"
+                    onclick="location.href='../game/game.html'">
+
+                    <svg class="ico"><use href="#i-replay"/></svg> Play Again
+
+                </button>
+
+                <button class="home-btn"
+                    onclick="location.href='../index.html'">
+
+                    <svg class="ico"><use href="#i-home"/></svg> Home
+
+                </button>
+               <button class="dashboard-btn" onclick="goToDashboard()">
+    📊 Go to Dashboard
+</button>
+
+            </div>
+
+        </section>
+
+
+        </main>
+
+
+    <script src="result.js"></script>
+
+</body>
+
+</html>
